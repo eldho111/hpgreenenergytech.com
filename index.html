@@ -88,89 +88,67 @@
     </div>
   </section>
 
-  <!-- ============================ TECHNOLOGY ============================ -->
-  <section id="technology" class="py-20 border-t">
-    <div class="max-w-[1200px] mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-semibold">Technology</h2>
-      <p class="mt-3 max-w-2xl text-slate-600">
-        Modular electrolyzers (1–20 MW), smart balance-of-plant, and flexible storage options — bankable, safe, and efficient.
-      </p>
+<!-- ============================ TECHNOLOGY ============================ -->
+<section id="technology" class="py-20 border-t">
+  <div class="max-w-[1200px] mx-auto px-4">
+    <h2 class="text-2xl md:text-3xl font-semibold">Technology</h2>
+    <p class="mt-3 max-w-2xl text-slate-600">
+      Modular electrolyzers (1–20 MW), smart balance-of-plant, and flexible storage options — bankable, safe, and efficient.
+    </p>
 
-      <!-- Tech: Electrolyzer -->
-<div class="mt-10 grid md:grid-cols-2 gap-8 items-center">
-  <img
-    src="images/electrolyzer.png"
-    alt="Electrolyzer"
-    class="rounded-2xl shadow-lg border w-full object-cover"
-    loading="lazy" decoding="async"
-  />
-  ...
-</div>
-
-          <h3 class="text-xl font-semibold text-emerald-700">Advanced Electrolyzers</h3>
-          <ul class="mt-3 space-y-2 text-slate-600 list-disc list-inside">
-            <li>PEM / Alkaline stacks with high efficiency</li>
-            <li>Dynamic response for wind/solar profiles</li>
-            <li>EPC-ready skids from 1–20 MW</li>
-          </ul>
-        </div>
+    <!-- Block 1: Electrolyzer -->
+    <div class="mt-10 grid md:grid-cols-2 gap-10 items-center">
+      <div class="order-1">
+        <img
+          src="images/electrolyzer.png"
+          alt="Electrolyzer"
+          class="w-full rounded-2xl shadow-lg border bg-white object-contain aspect-[4/3]"
+          loading="lazy" decoding="async"
+        />
       </div>
+      <div class="order-2">
+        <h3 class="text-xl font-semibold text-emerald-700">Advanced Electrolyzers</h3>
+        <ul class="mt-3 space-y-2 text-slate-600 list-disc list-inside">
+          <li>PEM / Alkaline stacks with high efficiency</li>
+          <li>Dynamic response for wind/solar profiles</li>
+          <li>EPC-ready skids from 1–20 MW</li>
+        </ul>
+      </div>
+    </div>
 
-      <!-- Tech: Storage + Grid -->
-      <div class="mt-10 grid md:grid-cols-2 gap-8 items-start">
-        <div class="space-y-4">
-          <img src="images/storage.png" alt="Hydrogen Storage"
-               class="rounded-2xl shadow-lg border w-full object-cover"
-               loading="lazy" decoding="async" />
+    <!-- Block 2: Storage + Grid (two balanced cards) -->
+    <div class="mt-12 grid md:grid-cols-2 gap-10 items-start">
+      <!-- Storage card -->
+      <article class="rounded-2xl border bg-white shadow-sm overflow-hidden">
+        <img
+          src="images/storage.png"
+          alt="Hydrogen Storage"
+          class="w-full object-cover aspect-[16/9]"
+          loading="lazy" decoding="async"
+        />
+        <div class="p-6">
           <h3 class="text-lg font-semibold text-emerald-700">Safe & Scalable Storage</h3>
-          <p class="text-slate-600">Compressed, cryogenic, and LOHC — engineered to codes & safety standards.</p>
+          <p class="mt-2 text-slate-600">Compressed, cryogenic, and LOHC — engineered to codes & safety standards.</p>
         </div>
-        <div class="space-y-4">
-          <img src="images/grid.png" alt="RE + Grid Integration"
-               class="rounded-2xl shadow-lg border w-full object-cover"
-               loading="lazy" decoding="async" />
-          <h3 class="text-lg font-semibold text-emerald-700">RE-Native Integration</h3>
-          <p class="text-slate-600">Wind/solar-coupled electrolysis enabling seasonal storage and grid balancing.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      </article>
 
-  <!-- ============================ APPLICATIONS ============================ -->
-  <section id="applications" class="py-20">
-    <div class="max-w-[1200px] mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-semibold">Applications</h2>
-      <div class="mt-10 grid md:grid-cols-3 gap-6">
-        <!-- App: Mobility -->
-        <article class="rounded-2xl border bg-white shadow-sm overflow-hidden">
-          <img src="images/mobility.png" alt="Hydrogen Mobility"
-               class="w-full aspect-video object-cover" loading="lazy" decoding="async" />
-          <div class="p-6">
-            <div class="text-emerald-700 font-semibold">Mobility</div>
-            <p class="mt-2 text-sm text-slate-600">Buses, trucks, and fleets — fuel cell or H₂-ICE.</p>
-          </div>
-        </article>
-        <!-- App: Industry -->
-        <article class="rounded-2xl border bg-white shadow-sm overflow-hidden">
-          <img src="images/industry.png" alt="Hydrogen for Industry"
-               class="w-full aspect-video object-cover" loading="lazy" decoding="async" />
-          <div class="p-6">
-            <div class="text-emerald-700 font-semibold">Industry</div>
-            <p class="mt-2 text-sm text-slate-600">Green heat & feedstock for steel, cement, fertilisers.</p>
-          </div>
-        </article>
-        <!-- App: Grid & Storage -->
-        <article class="rounded-2xl border bg-white shadow-sm overflow-hidden">
-          <img src="images/grid.png" alt="Grid & Storage"
-               class="w-full aspect-video object-cover" loading="lazy" decoding="async" />
-          <div class="p-6">
-            <div class="text-emerald-700 font-semibold">Grid & Storage</div>
-            <p class="mt-2 text-sm text-slate-600">Seasonal storage and power-to-gas balancing.</p>
-          </div>
-        </article>
-      </div>
+      <!-- Grid card -->
+      <article class="rounded-2xl border bg-white shadow-sm overflow-hidden">
+        <img
+          src="images/grid.png"
+          alt="RE + Grid Integration"
+          class="w-full object-cover aspect-[16/9]"
+          loading="lazy" decoding="async"
+        />
+        <div class="p-6">
+          <h3 class="text-lg font-semibold text-emerald-700">RE-Native Integration</h3>
+          <p class="mt-2 text-slate-600">Wind/solar-coupled electrolysis enabling seasonal storage and grid balancing.</p>
+        </div>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
+
 
   <!-- ============================ IMPACT ============================ -->
   <section id="impact" class="relative py-24 bg-cover bg-center border-y"

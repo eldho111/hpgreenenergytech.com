@@ -1,80 +1,74 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- ============================ HEADER / NAV ============================ -->
-<header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-border">
-  <div class="max-w-[1200px] mx-auto px-4 h-16 flex items-center justify-between">
-    <!-- Brand -->
-    <a href="#" class="flex items-center gap-3">
-      <!-- Logo image (place at /images/logo.png) -->
-      <img
-        src="images/logo.png"
-        alt="Hypower Green Energy Technologies logo"
-        class="h-12 w-auto select-none"
-        decoding="async" loading="eager"
-      />
-      <div class="leading-tight">
-        <div class="font-semibold tracking-tight text-emerald-700">Hypower</div>
-        <div class="text-xs text-slate-500">Green Energy Technologies</div>
-      </div>
-    </a>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hypower Green Energy Technologies</title>
+  <meta name="description" content="Green hydrogen innovations — modular electrolyzers, storage, mobility, and grid integration." />
 
-    <!-- Desktop Nav -->
-    <nav class="hidden md:flex items-center gap-6 text-sm">
-      <a href="#mission" class="hover:text-emerald-700">Mission</a>
-      <a href="#pillars" class="hover:text-emerald-700">Focus</a>
-      <a href="#technology" class="hover:text-emerald-700">Technology</a>
-      <a href="#products" class="hover:text-emerald-700">Products</a>
-      <a href="#consultation" class="hover:text-emerald-700">Consultation</a>
-      <a href="#applications" class="hover:text-emerald-700">Applications</a>
-      <a href="#achievements" class="hover:text-emerald-700">Achievements</a>
-      <a href="#partners" class="hover:text-emerald-700">Partners</a>
-      <a href="#leadership" class="hover:text-emerald-700">Leadership</a>
-      <a href="#contact" class="btn btn-primary glow">Talk to us</a>
-    </nav>
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 
-    <!-- Mobile hamburger -->
-    <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false"
-            class="md:hidden rounded-lg border px-3 py-2 text-sm">
-      Menu
-    </button>
-  </div>
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink:    '#0f172a',
+            muted:  '#475569',
+            primary:'#059669',
+            sky:    '#60a5fa',
+            surface:'#f8fafc',
+            border: '#e5e7eb'
+          },
+          borderRadius: { xl: '14px', '2xl': '20px' },
+          boxShadow: {
+            card: '0 1px 0 rgba(0,0,0,.04), 0 10px 30px -20px rgba(2,6,23,.25)',
+            float:'0 12px 30px rgba(2,6,23,.18)'
+          },
+          fontFamily: { sans: ['Inter','system-ui','-apple-system','Segoe UI','Roboto','Helvetica Neue','Arial','Noto Sans'] },
+        }
+      }
+    }
+  </script>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden md:hidden border-t bg-white">
-    <div class="max-w-[1200px] mx-auto px-4 py-3 grid gap-3 text-sm">
-      <a href="#mission">Mission</a>
-      <a href="#pillars">Focus</a>
-      <a href="#technology">Technology</a>
-      <a href="#products">Products</a>
-      <a href="#consultation">Consultation</a>
-      <a href="#applications">Applications</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#partners">Partners</a>
-      <a href="#leadership">Leadership</a>
-      <a href="#contact" class="w-max btn btn-primary">Talk to us</a>
-    </div>
-  </div>
-</header>
+  <style>
+    :root{ --g1:#059669; --g2:#60a5fa; --radius:14px; }
+    html,body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans"}
+    .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem; padding:.5rem 1rem; font-weight:600; border-radius:14px; border:1px solid rgba(2,6,23,.08); transition:all .15s; box-shadow:0 6px 18px rgba(2,6,23,.08)}
+    .btn-primary{ background:linear-gradient(90deg,var(--g1),var(--g2)); color:#fff }
+    .btn-ghost{ background:transparent; color:#fff; border-color:rgba(255,255,255,.7)}
+    .btn-ghost:hover{ background:rgba(255,255,255,.1)}
+    .btn-contrast{ background:#fff; color:#047857 }
+    .card{ background:#fff; border:1px solid #e5e7eb; border-radius:14px; box-shadow:0 1px 0 rgba(0,0,0,.04), 0 10px 30px -20px rgba(2,6,23,.25) }
+    .gradient-text{ background:linear-gradient(90deg,var(--g1),var(--g2)); -webkit-background-clip:text; background-clip:text; color:transparent }
+    @keyframes pulseGlow{0%{box-shadow:0 0 0 0 rgba(16,185,129,.45)}70%{box-shadow:0 0 0 14px rgba(16,185,129,0)}100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}}
+    .glow{ animation:pulseGlow 2.8s infinite }
+    .hero-vignette::after{ content:""; position:absolute; inset:0; background:radial-gradient(1200px 600px at 20% 30%, rgba(0,0,0,0) 30%, rgba(0,0,0,.24) 80%); pointer-events:none; }
+    .badge{ display:inline-block; padding:.25rem .5rem; border-radius:10px; font-size:.75rem; font-weight:600 }
+  </style>
+</head>
 
+<body class="bg-white text-ink selection:bg-emerald-200/60">
 
-  <!-- ============================ HEADER ============================ -->
+  <!-- ============ HEADER / NAV (single instance) ============ -->
   <header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-border">
     <div class="max-w-[1200px] mx-auto px-4 h-16 flex items-center justify-between">
       <!-- Brand -->
       <a href="#" class="flex items-center gap-3">
-        <svg class="h-9 w-9" viewBox="0 0 64 64" aria-label="Hypower logo">
-          <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient></defs>
-        <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#g1)"/>
-          <text x="32" y="38" text-anchor="middle" font-size="20" fill="white" font-family="Inter,system-ui">H₂</text>
-        </svg>
+        <img src="images/logo.png" alt="Hypower Green Energy Technologies logo" class="h-12 w-auto select-none" decoding="async" loading="eager"/>
         <div class="leading-tight">
-          <div class="font-semibold tracking-tight">Hypower Green</div>
-          <div class="text-xs text-slate-500">Energy Technologies</div>
+          <div class="font-semibold tracking-tight text-emerald-700">Hypower</div>
+          <div class="text-xs text-slate-500">Green Energy Technologies</div>
         </div>
       </a>
 
-      <!-- Nav mirrors h2one sections -->
+      <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-6 text-sm">
         <a href="#mission" class="hover:text-emerald-700">Mission</a>
         <a href="#pillars" class="hover:text-emerald-700">Focus</a>
@@ -88,22 +82,29 @@
         <a href="#contact" class="btn btn-primary glow">Talk to us</a>
       </nav>
 
-      <!-- Mobile -->
-      <button id="menuBtn" class="md:hidden rounded-lg border px-3 py-2 text-sm">Menu</button>
+      <!-- Mobile hamburger -->
+      <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false"
+              class="md:hidden rounded-lg border px-3 py-2 text-sm">Menu</button>
     </div>
 
+    <!-- Mobile Menu -->
     <div id="mobileMenu" class="hidden md:hidden border-t bg-white">
       <div class="max-w-[1200px] mx-auto px-4 py-3 grid gap-3 text-sm">
-        <a href="#mission">Mission</a><a href="#pillars">Focus</a><a href="#technology">Technology</a>
-        <a href="#products">Products</a><a href="#consultation">Consultation</a>
-        <a href="#applications">Applications</a><a href="#achievements">Achievements</a>
-        <a href="#partners">Partners</a><a href="#leadership">Leadership</a>
+        <a href="#mission">Mission</a>
+        <a href="#pillars">Focus</a>
+        <a href="#technology">Technology</a>
+        <a href="#products">Products</a>
+        <a href="#consultation">Consultation</a>
+        <a href="#applications">Applications</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#partners">Partners</a>
+        <a href="#leadership">Leadership</a>
         <a href="#contact" class="w-max btn btn-primary">Talk to us</a>
       </div>
     </div>
   </header>
 
-  <!-- ============================ HERO ============================ -->
+  <!-- ============ HERO (copy-safe left) ============ -->
   <section class="relative h-[78vh] md:h-[86vh] bg-cover bg-center hero-vignette"
            style="background-image:url('images/hero.png')">
     <div class="absolute inset-0 bg-emerald-900/30"></div>
@@ -111,10 +112,10 @@
       <div class="text-white">
         <p class="text-sm uppercase tracking-wide text-white/80">India-first clean-tech</p>
         <h1 class="text-4xl md:text-5xl leading-tight font-extrabold">
-          Green Hydrogen & <span class="gradient-text">Ammonia-Ready</span> Fuel Cells
+          Green Hydrogen <span class="gradient-text">Systems</span> for India
         </h1>
         <p class="mt-4 text-emerald-50/90 max-w-xl">
-          Modular electrolyzers, ammonia-capable stacks, and storage — engineered for shared mobility, marine use, and resilient microgrids.
+          Modular electrolyzers and hydrogen storage — engineered for shared mobility, marine use, and resilient microgrids.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
           <a href="#mission" class="btn btn-contrast glow">Pitch deck</a>
@@ -123,6 +124,27 @@
       </div>
     </div>
   </section>
+
+  <!-- ===== your existing sections continue below unchanged ===== -->
+  <!-- Mission, Pillars, Technology, Products, Consultation, Applications, Achievements, Partners, About, Journey, Leadership, Contact, CTA, Footer -->
+
+  <script>
+    // Footer year (if present)
+    const yearEl = document.getElementById('year'); if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    // Mobile menu toggle with ARIA sync
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const hidden = mobileMenu.classList.toggle('hidden');
+        menuBtn.setAttribute('aria-expanded', String(!hidden));
+      });
+    }
+  </script>
+</body>
+</html>
+
 
   <!-- ============================ MISSION / VISION ============================ -->
   <section id="mission" class="py-20">
@@ -142,9 +164,9 @@
             rugged hardware, and financeable rollouts</em> beat lab records every time.
           </p>
           <p>
-            Today, we’re building ammonia-ready fuel cells and modular electrolyzers that fit
-            India’s reality: turbulent renewables, tight budgets, and maintenance in the wild.
-            The goal isn’t a demo—it’s displacement of diesel at scale.
+                Today, we’re building modular electrolyzers that fit
+          India’s reality: turbulent renewables, tight budgets, and maintenance in the wild.
+          The goal isn’t a demo—it’s displacement of diesel at scale.
           </p>
         </div>
 

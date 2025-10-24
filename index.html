@@ -6,22 +6,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hypower Green Energy Technologies</title>
   <meta name="description" content="Green hydrogen at scale — electrolyzers, storage, mobility, and grid integration." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /* ======== H2One-inspired Tailwind tokens ======== */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            hcBg:     '#ffffff',
+            hcInk:    '#0f172a',   // body ink
+            hcMuted:  '#475569',   // secondary text
+            hcPrimary:'#059669',   // emerald-600
+            hcSky:    '#60a5fa',   // sky-400 (for gradient partner)
+            hcAccent: '#22c55e',   // accent badges
+            hcSurface:'#f8fafc',   // light cards
+            hcBorder: '#e5e7eb',   // borders
+            hcGlass:  'rgba(255,255,255,0.08)',
+          },
+          borderRadius: { xl: '14px', '2xl': '20px' },
+          boxShadow: {
+            card: '0 1px 0 rgba(0,0,0,.04), 0 10px 30px -20px rgba(2,6,23,.25)',
+            float:'0 12px 30px rgba(2,6,23,.18)'
+          },
+          fontFamily: { sans: ['Inter','system-ui','-apple-system','Segoe UI','Roboto','Helvetica Neue','Arial','Noto Sans'] },
+        }
+      }
+    }
+  </script>
+
   <style>
+    /* ======== Base look & reusable components (H2One-style) ======== */
+    :root{
+      --ink:   #0f172a;
+      --muted: #475569;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --radius: 14px;
+      --g1: #059669; /* emerald-600 */
+      --g2: #60a5fa; /* sky-400 */
+    }
+
+    html,body{background:#fff;color:var(--ink);font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans"}
+    h1,h2,h3{letter-spacing:-0.015em}
+    h1{font-weight:800}
+    h2,h3{font-weight:700}
+    p,li{color:var(--muted)}
+
+    /* gradient text helper */
+    .gradient-text{
+      background: linear-gradient(90deg, var(--g1), var(--g2));
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+
+    /* buttons */
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+      padding:.7rem 1rem;border-radius:calc(var(--radius) - 2px);
+      font-weight:600; border:1px solid transparent; transition:all .2s ease;
+      box-shadow: 0 6px 18px rgba(2,6,23,.08);
+    }
+    .btn-primary{
+      background: linear-gradient(90deg, var(--g1), var(--g2));
+      color:#fff; border-color: rgba(2,6,23,.1);
+    }
+    .btn-primary:hover{ filter: brightness(1.05) }
+    .btn-ghost{
+      background: transparent; color: var(--g1); border-color: var(--g1);
+    }
+    .btn-ghost:hover{ background: rgba(5,150,105,.06) }
+    .btn-contrast{
+      background: #ffffff; color:#064e3b; /* on dark backgrounds */
+    }
+    .btn-contrast:hover{ background:#f8fafc }
+
+    /* cards & glass */
+    .card{
+      background:#fff;border:1px solid var(--border);border-radius:var(--radius);
+      box-shadow: var(--shadow, 0 1px 0 rgba(0,0,0,.04));
+    }
+    .glass{
+      background: rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(10px); border-radius: var(--radius);
+    }
+
     /* gentle glow for hero buttons/accents */
-    @keyframes pulseGlow {
+    @keyframes pulseGlow{
       0% { box-shadow: 0 0 0 0 rgba(16,185,129,.45) }
       70% { box-shadow: 0 0 0 14px rgba(16,185,129,0) }
-      100% { box-shadow: 0 0 0 0 rgba(16,185,129,0) }
+      100%{ box-shadow: 0 0 0 0 rgba(16,185,129,0) }
     }
-    .glow { animation: pulseGlow 2.8s infinite; }
+    .glow{ animation: pulseGlow 2.8s infinite }
+
+    /* hero overlay vignette for depth */
+    .hero-overlay:after{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(1200px 600px at 20% 30%, rgba(0,0,0,0) 30%, rgba(0,0,0,.24) 80%);
+      pointer-events:none;
+    }
   </style>
 </head>
-<body class="bg-white text-slate-900 selection:bg-emerald-200/60">
+<body class="bg-hcBg text-hcInk selection:bg-emerald-200/60">
 
   <!-- ============================ HEADER / NAV ============================ -->
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200 shadow-sm">
+  <header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-hcBorder shadow-sm">
     <div class="max-w-[1200px] mx-auto px-4 h-16 flex items-center justify-between">
       <!-- Brand -->
       <a href="#" class="flex items-center gap-3">
@@ -48,7 +142,7 @@
         <a href="#impact" class="hover:text-emerald-700">Impact</a>
         <a href="#about" class="hover:text-emerald-700">About</a>
         <a href="#leadership" class="hover:text-emerald-700">Leadership</a>
-        <a href="#get-in-touch" class="rounded-xl bg-emerald-600 px-3 py-2 text-white font-medium hover:bg-emerald-700 glow">Talk to us</a>
+        <a href="#get-in-touch" class="btn btn-primary glow">Talk to us</a>
       </nav>
 
       <!-- Mobile hamburger -->
@@ -63,110 +157,109 @@
         <a href="#impact" class="text-sm">Impact</a>
         <a href="#about" class="text-sm">About</a>
         <a href="#leadership" class="text-sm">Leadership</a>
-        <a href="#get-in-touch" class="w-max rounded-xl bg-emerald-600 px-3 py-2 text-sm font-medium text-white">Talk to us</a>
+        <a href="#get-in-touch" class="w-max btn btn-primary">Talk to us</a>
       </div>
     </div>
   </header>
 
   <!-- ============================ HERO ============================ -->
-  <section class="relative h-[80vh] md:h-[86vh] bg-cover bg-center"
+  <section class="relative h-[80vh] md:h-[86vh] bg-cover bg-center hero-overlay"
            style="background-image:url('images/hero.png')">
     <div class="absolute inset-0 bg-emerald-900/30"></div>
     <div class="relative max-w-[1200px] mx-auto h-full grid md:grid-cols-2 items-center gap-10 px-4">
       <div class="text-white">
-        <h1 class="text-4xl md:text-5xl font-semibold leading-tight">
-          Green Hydrogen for a <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-200 to-sky-200">Net-Zero</span> Economy
+        <h1 class="text-4xl md:text-5xl leading-tight">
+          Green Hydrogen for a <span class="gradient-text">Net-Zero</span> Economy
         </h1>
         <p class="mt-4 text-emerald-50/90 max-w-xl">
           Electrolyzers, storage, and fueling — engineered for renewables to decarbonize mobility, industry, and the grid.
         </p>
         <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#technology" class="rounded-xl bg-white/90 px-4 py-2 text-emerald-900 font-medium hover:bg-white">Explore technology</a>
-          <a href="#get-in-touch" class="rounded-xl border border-white/70 px-4 py-2 text-white font-medium hover:bg-white/10">Partner with us</a>
+          <a href="#technology" class="btn btn-contrast glow">Explore technology</a>
+          <a href="#get-in-touch" class="btn btn-ghost text-white border-white hover:bg-white/10">Partner with us</a>
         </div>
       </div>
     </div>
   </section>
 
-<!-- ============================ TECHNOLOGY ============================ -->
-<section id="technology" class="py-20 border-t">
-  <div class="max-w-[1200px] mx-auto px-4">
-    <h2 class="text-2xl md:text-3xl font-semibold">Technology</h2>
-    <p class="mt-3 max-w-2xl text-slate-600">
-      Modular electrolyzers (1–20 MW), smart balance-of-plant, and flexible storage options — bankable, safe, and efficient.
-    </p>
+  <!-- ============================ TECHNOLOGY ============================ -->
+  <section id="technology" class="py-20 border-t">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl">Technology</h2>
+      <p class="mt-3 max-w-2xl">
+        Modular electrolyzers (1–20 MW), smart balance-of-plant, and flexible storage options — bankable, safe, and efficient.
+      </p>
 
-    <!-- Block 1: Electrolyzer -->
-    <div class="mt-10 grid md:grid-cols-2 gap-10 items-center">
-      <div class="order-1">
-        <img
-          src="images/electrolyzer.png"
-          alt="Electrolyzer"
-          class="w-full rounded-2xl shadow-lg border bg-white object-contain aspect-[4/3]"
-          loading="lazy" decoding="async"
-        />
+      <!-- Block 1: Electrolyzer -->
+      <div class="mt-10 grid md:grid-cols-2 gap-10 items-center">
+        <div class="order-1">
+          <img
+            src="images/electrolyzer.png"
+            alt="Electrolyzer"
+            class="w-full rounded-2xl shadow-card border bg-white object-contain aspect-[4/3]"
+            loading="lazy" decoding="async"
+          />
+        </div>
+        <div class="order-2">
+          <h3 class="text-xl text-emerald-700">Advanced Electrolyzers</h3>
+          <ul class="mt-3 space-y-2 list-disc list-inside">
+            <li>PEM / Alkaline stacks with high efficiency</li>
+            <li>Dynamic response for wind/solar profiles</li>
+            <li>EPC-ready skids from 1–20 MW</li>
+          </ul>
+        </div>
       </div>
-      <div class="order-2">
-        <h3 class="text-xl font-semibold text-emerald-700">Advanced Electrolyzers</h3>
-        <ul class="mt-3 space-y-2 text-slate-600 list-disc list-inside">
-          <li>PEM / Alkaline stacks with high efficiency</li>
-          <li>Dynamic response for wind/solar profiles</li>
-          <li>EPC-ready skids from 1–20 MW</li>
-        </ul>
+
+      <!-- Block 2: Storage + Grid -->
+      <div class="mt-12 grid md:grid-cols-2 gap-10 items-start">
+        <!-- Storage card -->
+        <article class="card overflow-hidden">
+          <img
+            src="images/storage.png"
+            alt="Hydrogen Storage"
+            class="w-full object-cover aspect-[16/9]"
+            loading="lazy" decoding="async"
+          />
+          <div class="p-6">
+            <h3 class="text-lg text-emerald-700">Safe & Scalable Storage</h3>
+            <p class="mt-2">Compressed, cryogenic, and LOHC — engineered to codes & safety standards.</p>
+          </div>
+        </article>
+
+        <!-- Grid card -->
+        <article class="card overflow-hidden">
+          <img
+            src="images/grid.png"
+            alt="RE + Grid Integration"
+            class="w-full object-cover aspect-[16/9]"
+            loading="lazy" decoding="async"
+          />
+          <div class="p-6">
+            <h3 class="text-lg text-emerald-700">RE-Native Integration</h3>
+            <p class="mt-2">Wind/solar-coupled electrolysis enabling seasonal storage and grid balancing.</p>
+          </div>
+        </article>
       </div>
     </div>
-
-    <!-- Block 2: Storage + Grid (two balanced cards) -->
-    <div class="mt-12 grid md:grid-cols-2 gap-10 items-start">
-      <!-- Storage card -->
-      <article class="rounded-2xl border bg-white shadow-sm overflow-hidden">
-        <img
-          src="images/storage.png"
-          alt="Hydrogen Storage"
-          class="w-full object-cover aspect-[16/9]"
-          loading="lazy" decoding="async"
-        />
-        <div class="p-6">
-          <h3 class="text-lg font-semibold text-emerald-700">Safe & Scalable Storage</h3>
-          <p class="mt-2 text-slate-600">Compressed, cryogenic, and LOHC — engineered to codes & safety standards.</p>
-        </div>
-      </article>
-
-      <!-- Grid card -->
-      <article class="rounded-2xl border bg-white shadow-sm overflow-hidden">
-        <img
-          src="images/grid.png"
-          alt="RE + Grid Integration"
-          class="w-full object-cover aspect-[16/9]"
-          loading="lazy" decoding="async"
-        />
-        <div class="p-6">
-          <h3 class="text-lg font-semibold text-emerald-700">RE-Native Integration</h3>
-          <p class="mt-2 text-slate-600">Wind/solar-coupled electrolysis enabling seasonal storage and grid balancing.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- ============================ IMPACT ============================ -->
   <section id="impact" class="relative py-24 bg-cover bg-center border-y"
            style="background-image:url('images/impact.png')">
     <div class="absolute inset-0 bg-emerald-900/60"></div>
     <div class="relative max-w-[1200px] mx-auto px-4 text-white">
-      <h2 class="text-2xl md:text-3xl font-semibold">Sustainability Impact</h2>
+      <h2 class="text-2xl md:text-3xl">Sustainability Impact</h2>
       <div class="mt-8 grid md:grid-cols-3 gap-6">
         <!-- KPI cards -->
-        <div class="rounded-2xl border border-white/20 bg-white/10 p-6 text-center backdrop-blur">
+        <div class="glass p-6 text-center">
           <div class="text-3xl font-bold">0 tCO₂</div>
           <div class="mt-2 text-sm opacity-90">Scope-1 emissions at point of use</div>
         </div>
-        <div class="rounded-2xl border border-white/20 bg-white/10 p-6 text-center backdrop-blur">
+        <div class="glass p-6 text-center">
           <div class="text-3xl font-bold">85–95%</div>
           <div class="mt-2 text-sm opacity-90">Renewable share with smart curtailment</div>
         </div>
-        <div class="rounded-2xl border border-white/20 bg-white/10 p-6 text-center backdrop-blur">
+        <div class="glass p-6 text-center">
           <div class="text-3xl font-bold">1–20 MW</div>
           <div class="mt-2 text-sm opacity-90">Modular blocks for rapid deployment</div>
         </div>
@@ -178,73 +271,70 @@
   <section id="about" class="py-20">
     <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
       <div>
-        <h2 class="text-2xl md:text-3xl font-semibold">About Hypower Green</h2>
-        <p class="mt-3 text-slate-600">
+        <h2 class="text-2xl md:text-3xl">About Hypower Green</h2>
+        <p class="mt-3">
           India-based clean-tech startup accelerating the green hydrogen economy. We blend electrochemistry,
           power electronics, and project development to deliver bankable H₂ assets.
         </p>
-        <ul class="mt-4 space-y-2 text-slate-600 list-disc list-inside">
+        <ul class="mt-4 space-y-2 list-disc list-inside">
           <li>Founder-led engineering team</li>
           <li>Supplier network across stacks, BOP, and storage</li>
           <li>Pilot deployments with industrial partners</li>
         </ul>
       </div>
-      <div class="rounded-2xl border bg-white p-0 shadow-sm overflow-hidden">
+      <div class="card p-0 overflow-hidden">
         <img src="images/team.png" alt="Team / Lab" class="w-full object-cover" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
 
   <!-- ============================ LEADERSHIP (PEOPLE) ============================ -->
-  <section id="leadership" class="py-16 bg-slate-50/60 border-t">
+  <section id="leadership" class="py-16 bg-hcSurface border-t">
     <div class="max-w-[1200px] mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-semibold">Leadership</h2>
-      <p class="mt-3 text-slate-600 max-w-2xl">The team driving Hypower Green’s technology and partnerships.</p>
+      <h2 class="text-2xl md:text-3xl">Leadership</h2>
+      <p class="mt-3 max-w-2xl">The team driving Hypower Green’s technology and partnerships.</p>
 
       <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Person -->
-        <article class="rounded-2xl border bg-white p-6 shadow-sm">
-          <h3 class="font-semibold text-emerald-700">Ravikumar, PhD</h3>
-          <p class="text-sm text-slate-600">Founder & Director</p>
-          
+        <article class="card p-6">
+          <h3 class="text-emerald-700 font-semibold">Ravikumar, PhD</h3>
+          <p class="text-sm">Founder & Director</p>
         </article>
 
         <!-- Person -->
-        <article class="rounded-2xl border bg-white p-6 shadow-sm">
-          <h3 class="font-semibold text-emerald-700">Radha Shivaramaiah, PhD</h3>
-          <p class="text-sm text-slate-600">Founder & Director</p>
-         
+        <article class="card p-6">
+          <h3 class="text-emerald-700 font-semibold">Radha Shivaramaiah, PhD</h3>
+          <p class="text-sm">Founder & Director</p>
         </article>
 
         <!-- Person -->
-        <article class="rounded-2xl border bg-white p-6 shadow-sm">
-          <h3 class="font-semibold text-emerald-700">Shiva Kumar, PhD</h3>
-          <p class="text-sm text-slate-600">Research Engineer</p>
-          
+        <article class="card p-6">
+          <h3 class="text-emerald-700 font-semibold">Shiva Kumar, PhD</h3>
+          <p class="text-sm">Research Engineer</p>
         </article>
       </div>
     </div>
   </section>
 
   <!-- ============================ CONTACT (FORM + INFO) ============================ -->
-  <section id="contact" class="py-20 bg-slate-50/60">
+  <section id="contact" class="py-20 bg-hcSurface">
     <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-3 gap-6">
       <!-- Contact form -->
-      <div class="md:col-span-2 rounded-2xl border bg-white p-6 shadow-sm">
+      <div class="md:col-span-2 card p-6">
         <form class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <input placeholder="Name" class="rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-500" />
           <input placeholder="Work email" type="email" class="rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-500" />
           <input placeholder="Company" class="rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-500 sm:col-span-2" />
           <textarea placeholder="Tell us about your project" rows="4" class="rounded-xl border px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-500 sm:col-span-2"></textarea>
-          <button type="button" class="rounded-xl bg-emerald-600 px-4 py-2 text-white font-medium w-max hover:bg-emerald-700">Send</button>
+          <button type="button" class="btn btn-primary w-max">Send</button>
         </form>
       </div>
 
       <!-- Contact details -->
       <div class="space-y-4">
-        <div class="rounded-2xl border bg-white p-6 shadow-sm">
+        <div class="card p-6">
           <div class="text-slate-700">admin@hpgreenenergytech.com</div>
-          <div class="mt-2 text-slate-700">+91-00000-00000</div>
+          <div class="mt-2 text-slate-700">+91-7406130590</div>
           <div class="mt-2 text-slate-700">Bengaluru, India</div>
           <div class="mt-4">
             <iframe
@@ -256,7 +346,7 @@
             </iframe>
           </div>
           <div class="mt-4 flex items-center gap-4 text-sm">
-            <a href="mailto:admin@hpgreenergytech.com" class="hover:text-emerald-700">Email</a>
+            <a href="mailto:admin@hpgreenenergytech.com" class="hover:text-emerald-700">Email</a>
             <a href="#" class="hover:text-emerald-700">LinkedIn</a>
             <a href="#" class="hover:text-emerald-700">Twitter/X</a>
           </div>
@@ -266,12 +356,12 @@
   </section>
 
   <!-- ============================ GET IN TOUCH (CTA STRIP) ============================ -->
-  <section id="get-in-touch" class="py-10 bg-emerald-600 text-white">
-    <div class="max-w-[1200px] mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+  <section id="get-in-touch" class="py-10" style="background:linear-gradient(90deg, var(--g1), var(--g2));">
+    <div class="max-w-[1200px] mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-white">
       <h3 class="text-xl font-semibold">Ready to discuss a hydrogen project?</h3>
       <div class="flex flex-wrap gap-3">
-        <a href="mailto:admin@hpgreenergytech.com" class="rounded-xl bg-white text-emerald-700 px-4 py-2 font-medium hover:bg-emerald-50">Email us</a>
-        <a href="https://wa.me/910000000000" target="_blank" rel="noopener" class="rounded-xl border border-white/70 px-4 py-2 font-medium hover:bg-white/10">WhatsApp</a>
+        <a href="mailto:admin@hpgreenenergytech.com" class="btn btn-contrast">Email us</a>
+        <a href="https://wa.me/910000000000" target="_blank" rel="noopener" class="btn btn-ghost text-white border-white hover:bg-white/10">WhatsApp</a>
       </div>
     </div>
   </section>
@@ -280,7 +370,7 @@
   <footer class="py-10 border-t">
     <div class="max-w-[1200px] mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500">
       <div class="flex items-center gap-2">
-        <div class="h-6 w-6 rounded-lg bg-emerald-600"></div>
+        <div class="h-6 w-6 rounded-lg" style="background:linear-gradient(90deg,var(--g1),var(--g2));"></div>
         <span>© <span id="year"></span> Hypower Green Energy Technologies</span>
       </div>
       <div class="flex items-center gap-4">
@@ -293,8 +383,9 @@
 
   <!-- ============================ FLOATING WHATSAPP CTA ============================ -->
   <a href="https://wa.me/910000000000" target="_blank" rel="noopener"
-     class="fixed bottom-5 right-5 rounded-full bg-emerald-600 p-4 text-white shadow-lg hover:bg-emerald-700"
-     aria-label="Chat on WhatsApp">
+     class="fixed bottom-5 right-5 rounded-full text-white p-4 shadow-float hover:scale-[1.03] transition-transform"
+     aria-label="Chat on WhatsApp"
+     style="background:linear-gradient(140deg,var(--g1),var(--g2));">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.06 0C5.63 0 .4 5.23.4 11.66c0 2.05.53 4.04 1.55 5.8L0 24l6.71-1.95a11.63 11.63 0 0 0 5.35 1.36h.01c6.43 0 11.66-5.23 11.66-11.66 0-3.12-1.22-6.06-3.21-8.07ZM12.06 21.5a9.8 9.8 0 0 1-4.99-1.36l-.36-.22-3.98 1.16 1.15-3.88-.24-.4A9.78 9.78 0 0 1 2.26 11.7c0-5.39 4.4-9.79 9.8-9.79 2.62 0 5.08 1.02 6.93 2.88a9.73 9.73 0 0 1 2.86 6.91c0 5.4-4.4 9.8-9.8 9.8Zm5.51-7.3c-.3-.15-1.77-.87-2.05-.96-.27-.1-.47-.14-.67.15-.2.3-.77.95-.95 1.15-.18.2-.35.22-.66.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.5-1.77-1.68-2.07-.18-.3-.02-.46.13-.61.13-.13.3-.34.44-.51.15-.17.2-.29.3-.48.1-.2.05-.36-.02-.5-.07-.14-.66-1.6-.9-2.2-.24-.58-.49-.5-.66-.5-.17 0-.36-.02-.56-.02s-.51.07-.78.36c-.27.3-1.02 1-1.02 2.44 0 1.44 1.05 2.83 1.2 3.03.15.2 2.07 3.16 5.02 4.43.7.3 1.25.48 1.67.61.7.22 1.33.19 1.83.12.56-.08 1.77-.72 2.02-1.43.25-.7.25-1.32.17-1.45-.07-.13-.27-.2-.57-.35Z"/></svg>
   </a>
 
@@ -312,4 +403,3 @@
   </script>
 </body>
 </html>
-

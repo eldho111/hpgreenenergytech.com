@@ -1,81 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ============================ META / HEAD ============================ -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hypower Green Energy Technologies</title>
-  <meta name="description" content="Green hydrogen & fuel-cell innovations — electrolyzers, ammonia-capable stacks, storage, mobility, and grid integration." />
+<!-- ============================ HEADER / NAV ============================ -->
+<header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-border">
+  <div class="max-w-[1200px] mx-auto px-4 h-16 flex items-center justify-between">
+    <!-- Brand -->
+    <a href="#" class="flex items-center gap-3">
+      <!-- Logo image (place at /images/logo.png) -->
+      <img
+        src="images/logo.png"
+        alt="Hypower Green Energy Technologies logo"
+        class="h-12 w-auto select-none"
+        decoding="async" loading="eager"
+      />
+      <div class="leading-tight">
+        <div class="font-semibold tracking-tight text-emerald-700">Hypower</div>
+        <div class="text-xs text-slate-500">Green Energy Technologies</div>
+      </div>
+    </a>
 
-  <!-- Inter font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-6 text-sm">
+      <a href="#mission" class="hover:text-emerald-700">Mission</a>
+      <a href="#pillars" class="hover:text-emerald-700">Focus</a>
+      <a href="#technology" class="hover:text-emerald-700">Technology</a>
+      <a href="#products" class="hover:text-emerald-700">Products</a>
+      <a href="#consultation" class="hover:text-emerald-700">Consultation</a>
+      <a href="#applications" class="hover:text-emerald-700">Applications</a>
+      <a href="#achievements" class="hover:text-emerald-700">Achievements</a>
+      <a href="#partners" class="hover:text-emerald-700">Partners</a>
+      <a href="#leadership" class="hover:text-emerald-700">Leadership</a>
+      <a href="#contact" class="btn btn-primary glow">Talk to us</a>
+    </nav>
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    /* Design tokens (H2One-style vibe: emerald → sky gradient, soft radii, glass) */
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ink:    '#0f172a',
-            muted:  '#475569',
-            primary:'#059669',   // emerald-600
-            sky:    '#60a5fa',   // sky-400
-            surface:'#f8fafc',
-            border: '#e5e7eb'
-          },
-          borderRadius: { xl: '14px', '2xl': '20px' },
-          boxShadow: {
-            card: '0 1px 0 rgba(0,0,0,.04), 0 10px 30px -20px rgba(2,6,23,.25)',
-            float:'0 12px 30px rgba(2,6,23,.18)'
-          },
-          fontFamily: { sans: ['Inter','system-ui','-apple-system','Segoe UI','Roboto','Helvetica Neue','Arial','Noto Sans'] },
-        }
-      }
-    }
-  </script>
+    <!-- Mobile hamburger -->
+    <button id="menuBtn" aria-controls="mobileMenu" aria-expanded="false"
+            class="md:hidden rounded-lg border px-3 py-2 text-sm">
+      Menu
+    </button>
+  </div>
 
-  <style>
-    :root{
-      --g1:#059669; --g2:#60a5fa; /* gradient ends */
-      --radius:14px;
-    }
-    html,body{font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans"}
-    .btn{
-      @apply inline-flex items-center justify-center gap-2 px-4 py-2 font-semibold rounded-xl border transition;
-      box-shadow:0 6px 18px rgba(2,6,23,.08)
-    }
-    .btn-primary{ background:linear-gradient(90deg,var(--g1),var(--g2)); color:#fff; border-color:rgba(2,6,23,.1) }
-    .btn-ghost{ @apply bg-transparent text-white border-white/70 hover:bg-white/10 }
-    .btn-contrast{ @apply bg-white text-emerald-700 hover:bg-emerald-50 }
-    .card{ @apply bg-white border border-border rounded-[14px] shadow-card }
-    .glass{
-      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
-      backdrop-filter:blur(10px); border-radius:var(--radius)
-    }
-    .gradient-text{
-      background:linear-gradient(90deg,var(--g1),var(--g2));
-      -webkit-background-clip:text;background-clip:text;color:transparent
-    }
-    @keyframes pulseGlow{
-      0%{ box-shadow:0 0 0 0 rgba(16,185,129,.45) }
-      70%{ box-shadow:0 0 0 14px rgba(16,185,129,0) }
-      100%{ box-shadow:0 0 0 0 rgba(16,185,129,0) }
-    }
-    .glow{ animation:pulseGlow 2.8s infinite }
-    .hero-vignette::after{
-      content:""; position:absolute; inset:0;
-      background:radial-gradient(1200px 600px at 20% 30%, rgba(0,0,0,0) 30%, rgba(0,0,0,.24) 80%);
-      pointer-events:none;
-    }
-    /* small helpers */
-    .badge{ @apply inline-block px-2 py-1 rounded-lg text-xs font-medium }
-  </style>
-</head>
-<body class="bg-white text-ink selection:bg-emerald-200/60">
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden border-t bg-white">
+    <div class="max-w-[1200px] mx-auto px-4 py-3 grid gap-3 text-sm">
+      <a href="#mission">Mission</a>
+      <a href="#pillars">Focus</a>
+      <a href="#technology">Technology</a>
+      <a href="#products">Products</a>
+      <a href="#consultation">Consultation</a>
+      <a href="#applications">Applications</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#partners">Partners</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact" class="w-max btn btn-primary">Talk to us</a>
+    </div>
+  </div>
+</header>
+
 
   <!-- ============================ HEADER ============================ -->
   <header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-border">

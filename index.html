@@ -71,6 +71,8 @@
       background:radial-gradient(1200px 600px at 20% 30%, rgba(0,0,0,0) 30%, rgba(0,0,0,.24) 80%);
       pointer-events:none;
     }
+    /* small helpers */
+    .badge{ @apply inline-block px-2 py-1 rounded-lg text-xs font-medium }
   </style>
 </head>
 <body class="bg-white text-ink selection:bg-emerald-200/60">
@@ -82,7 +84,7 @@
       <a href="#" class="flex items-center gap-3">
         <svg class="h-9 w-9" viewBox="0 0 64 64" aria-label="Hypower logo">
           <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#60a5fa"/></linearGradient></defs>
-          <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#g1)"/>
+        <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#g1)"/>
           <text x="32" y="38" text-anchor="middle" font-size="20" fill="white" font-family="Inter,system-ui">H₂</text>
         </svg>
         <div class="leading-tight">
@@ -96,6 +98,8 @@
         <a href="#mission" class="hover:text-emerald-700">Mission</a>
         <a href="#pillars" class="hover:text-emerald-700">Focus</a>
         <a href="#technology" class="hover:text-emerald-700">Technology</a>
+        <a href="#products" class="hover:text-emerald-700">Products</a>
+        <a href="#consultation" class="hover:text-emerald-700">Consultation</a>
         <a href="#applications" class="hover:text-emerald-700">Applications</a>
         <a href="#achievements" class="hover:text-emerald-700">Achievements</a>
         <a href="#partners" class="hover:text-emerald-700">Partners</a>
@@ -110,6 +114,7 @@
     <div id="mobileMenu" class="hidden md:hidden border-t bg-white">
       <div class="max-w-[1200px] mx-auto px-4 py-3 grid gap-3 text-sm">
         <a href="#mission">Mission</a><a href="#pillars">Focus</a><a href="#technology">Technology</a>
+        <a href="#products">Products</a><a href="#consultation">Consultation</a>
         <a href="#applications">Applications</a><a href="#achievements">Achievements</a>
         <a href="#partners">Partners</a><a href="#leadership">Leadership</a>
         <a href="#contact" class="w-max btn btn-primary">Talk to us</a>
@@ -117,7 +122,7 @@
     </div>
   </header>
 
-  <!-- ============================ HERO (like h2one hero with claim + CTA) ============================ -->
+  <!-- ============================ HERO ============================ -->
   <section class="relative h-[78vh] md:h-[86vh] bg-cover bg-center hero-vignette"
            style="background-image:url('images/hero.png')">
     <div class="absolute inset-0 bg-emerald-900/30"></div>
@@ -139,25 +144,100 @@
   </section>
 
   <!-- ============================ MISSION / VISION ============================ -->
-  <section id="mission" class="py-16">
+  <section id="mission" class="py-20">
     <div class="max-w-[1100px] mx-auto px-4 grid md:grid-cols-2 gap-10 items-start">
+      <!-- Narrative / Story -->
       <div>
-        <h2 class="text-2xl md:text-3xl font-semibold">Our Mission & Vision</h2>
-        <p class="mt-3 text-muted">
-          Build affordable, efficient green-hydrogen and ammonia-fuel solutions for India — replacing diesel and reducing grid volatility with safe, liquid-fuel logistics.
-        </p>
+        <p class="text-sm uppercase tracking-wide text-emerald-700/90">Why we exist</p>
+        <h2 class="mt-1 text-3xl md:text-4xl font-extrabold leading-tight">
+          From diesel-dependence to a <span class="gradient-text">liquid-clean</span> India
+        </h2>
+        <div class="mt-4 space-y-4 text-muted">
+          <p>
+            We started with a simple field observation: the places that most need reliable energy—
+            fishing harbors, inland waterways, village microgrids—often burn the dirtiest fuel.
+            Our founders prototyped compact stacks in a small lab, then hauled them to where
+            boats dock and autos queue. What we learned shaped our design: <em>fast refuel,
+            rugged hardware, and financeable rollouts</em> beat lab records every time.
+          </p>
+          <p>
+            Today, we’re building ammonia-ready fuel cells and modular electrolyzers that fit
+            India’s reality: turbulent renewables, tight budgets, and maintenance in the wild.
+            The goal isn’t a demo—it’s displacement of diesel at scale.
+          </p>
+        </div>
+
+        <!-- Proof points -->
+        <div class="mt-6 grid grid-cols-2 gap-4">
+          <div class="rounded-xl border p-4">
+            <div class="text-2xl font-bold">≤ 5 min</div>
+            <div class="text-sm text-muted">Target refuel for fleet autos & boats</div>
+          </div>
+          <div class="rounded-xl border p-4">
+            <div class="text-2xl font-bold">1–20 MW</div>
+            <div class="text-sm text-muted">Electrolyzer blocks for RE coupling</div>
+          </div>
+        </div>
       </div>
+
+      <!-- Mission / Vision / Status -->
       <div class="card p-6">
-        <ul class="space-y-2 text-muted">
-          <li><strong>Mission:</strong> Deliver bankable H₂ assets for mobility, industry, and microgrids.</li>
-          <li><strong>Vision:</strong> Net-zero energy access at scale using renewables + NH₃/H₂.</li>
-          <li><strong>Status:</strong> Prototyping stacks & integration; pilots with partners.</li>
-        </ul>
+        <div class="space-y-4 text-muted">
+          <div>
+            <div class="text-xs uppercase tracking-wide text-emerald-700/90">Mission</div>
+            <p class="mt-1">
+              Deliver bankable H₂/NH₃ energy assets that replace diesel in mobility, marine,
+              and microgrids—without asking operators to change how they work.
+            </p>
+          </div>
+
+          <div>
+            <div class="text-xs uppercase tracking-wide text-emerald-700/90">Vision</div>
+            <p class="mt-1">
+              A liquid-clean economy where green hydrogen and ammonia flow like today’s fuel,
+              stabilizing the grid and powering livelihoods from coasts to hills.
+            </p>
+          </div>
+
+          <div>
+            <div class="text-xs uppercase tracking-wide text-emerald-700/90">How we’ll get there</div>
+            <ul class="mt-2 space-y-2 list-disc list-inside">
+              <li><strong>Field-first engineering:</strong> Design for docks, depots, and dusty roads.</li>
+              <li><strong>Ammonia-ready stacks:</strong> Liquid logistics with minimal behavior change.</li>
+              <li><strong>RE-native systems:</strong> Curtailment-aware control and seasonal storage.</li>
+              <li><strong>Bankability:</strong> Standardized skids, warranties, and service playbooks.</li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t">
+            <div class="text-xs uppercase tracking-wide text-emerald-700/90">Status</div>
+            <p class="mt-1">
+              Prototyping stacks & integration; pilots with partners; award wins and incubation support accelerating deployments.
+            </p>
+            <div class="mt-3 flex flex-wrap gap-2 text-xs">
+              <span class="badge bg-emerald-50 text-emerald-700">Elevate Karnataka — Winners</span>
+              <span class="badge bg-sky-50 text-sky-700">JSS STEP Accelerator</span>
+              <span class="badge bg-indigo-50 text-indigo-700">Sagarmala PoC Award ’25</span>
+              <span class="badge bg-amber-50 text-amber-700">BBC Virtual Incubation (ongoing)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Commitments strip -->
+    <div class="max-w-[1100px] mx-auto px-4 mt-12">
+      <div class="rounded-2xl border p-5 md:p-6 bg-white">
+        <div class="grid md:grid-cols-3 gap-4 text-sm">
+          <div><span class="font-semibold text-emerald-700">Safety by design:</span> Codes, interlocks, and operator training baked in.</div>
+          <div><span class="font-semibold text-emerald-700">Affordable transition:</span> TCO parity targets for fleet and marine duty.</div>
+          <div><span class="font-semibold text-emerald-700">Open partnerships:</span> Vimano, Pentair, DU, MIT (Manipal), Jaipur, HPCL.</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ============================ PILLARS / FOCUS (like h2one “Fuel Cell R&D / Sustainable Impact”) ============================ -->
+  <!-- ============================ PILLARS / FOCUS ============================ -->
   <section id="pillars" class="py-12 bg-surface border-t">
     <div class="max-w-[1100px] mx-auto px-4 grid md:grid-cols-3 gap-6">
       <article class="card p-6">
@@ -215,7 +295,156 @@
     </div>
   </section>
 
-  <!-- ============================ APPLICATIONS (mirror h2one “Autos, Boats & Rural India”) ============================ -->
+  <!-- ============================ PRODUCTS (detailed) ============================ -->
+  <section id="products" class="py-20 bg-surface border-y">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold">Products</h2>
+      <p class="mt-3 text-muted max-w-3xl">Electrochemical materials and hardware to build reliable hydrogen systems — from lab to MW scale.</p>
+
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- AEM Membrane -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-lg font-semibold text-emerald-700">PiperION® AEM Membrane (40 μm)</h3>
+          <p class="mt-2 text-muted flex-1">Self-supporting anion exchange membrane for water electrolysis, CO₂ reduction, and AEM fuel cells. High ionic conductivity and alkaline durability.</p>
+          <details class="mt-4">
+            <summary class="cursor-pointer text-sm text-emerald-700 font-medium">Specs</summary>
+            <ul class="mt-2 text-sm text-muted list-disc list-inside space-y-1">
+              <li>Ionic conductivity ≥ 60 mS/cm</li>
+              <li>Continuous operation up to ~80 °C</li>
+              <li>Durability testing > 1000 h</li>
+            </ul>
+          </details>
+        </article>
+
+        <!-- AEL/AEM Anode Electrodes -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-lg font-semibold text-emerald-700">AEL / AEM Anode Electrodes</h3>
+          <p class="mt-2 text-muted flex-1">Ni–Fe / Co-based OER electrodes on SS/Ti supports for alkaline and AEM electrolysis; low polarization resistance and long life.</p>
+          <details class="mt-4">
+            <summary class="cursor-pointer text-sm text-emerald-700 font-medium">Specs</summary>
+            <ul class="mt-2 text-sm text-muted list-disc list-inside space-y-1">
+              <li>High current efficiency (&gt;95%)</li>
+              <li>Custom geometries for lab → pilot → MW</li>
+              <li>Reduced noble-metal dependency</li>
+            </ul>
+          </details>
+        </article>
+
+        <!-- Electrochemical Accessories -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-lg font-semibold text-emerald-700">Electrochemical Accessories</h3>
+          <p class="mt-2 text-muted flex-1">Fuel-cell hardware, MEAs, bipolar/monopolar plates, gaskets, and end plates — modular kits for rapid iteration.</p>
+          <details class="mt-4">
+            <summary class="cursor-pointer text-sm text-emerald-700 font-medium">Includes</summary>
+            <ul class="mt-2 text-sm text-muted list-disc list-inside space-y-1">
+              <li>Bipolar/monopolar plates (graphite, Ti, SS)</li>
+              <li>MEAs for PEM/AEM, end plates & fixtures</li>
+              <li>Current collectors & compression sets</li>
+            </ul>
+          </details>
+        </article>
+
+        <!-- Reference Electrodes -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-lg font-semibold text-emerald-700">Reference Electrodes</h3>
+          <p class="mt-2 text-muted flex-1">Ag/AgCl, SCE, RHE, and pseudo-reference designs for precise potential control in corrosion and kinetics studies.</p>
+          <details class="mt-4">
+            <summary class="cursor-pointer text-sm text-emerald-700 font-medium">Options</summary>
+            <ul class="mt-2 text-sm text-muted list-disc list-inside space-y-1">
+              <li>Leak-free ceramic junctions</li>
+              <li>Temperature-compensated potentials</li>
+              <li>Flow-cell integration on request</li>
+            </ul>
+          </details>
+        </article>
+
+        <!-- Stationary & RRDE Electrodes -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-lg font-semibold text-emerald-700">Stationary & RRDE Electrodes</h3>
+          <p class="mt-2 text-muted flex-1">Glassy carbon, Pt, Au discs and rotating ring–disk systems for catalyst screening and mechanistic studies.</p>
+          <details class="mt-4">
+            <summary class="cursor-pointer text-sm text-emerald-700 font-medium">Specs</summary>
+            <ul class="mt-2 text-sm text-muted list-disc list-inside space-y-1">
+              <li>Mirror-polished surfaces</li>
+              <li>Interchangeable shafts & contacts</li>
+              <li>RRDE (Au/Pt/GC) options</li>
+            </ul>
+          </details>
+        </article>
+
+        <!-- Electrolyzer Modules -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-lg font-semibold text-emerald-700">Electrolyzer Modules — PEM & AEM</h3>
+          <p class="mt-2 text-muted flex-1">Turn-key stacks and skids with BoP for hydrogen generation; ruggedized for variable RE inputs.</p>
+          <details class="mt-4">
+            <summary class="cursor-pointer text-sm text-emerald-700 font-medium">Specs</summary>
+            <ul class="mt-2 text-sm text-muted list-disc list-inside space-y-1">
+              <li>Power range: 1 kW – 20 MW modular</li>
+              <li>Stack voltage efficiency ≥ 82%</li>
+              <li>Pressure: up to ~30 bar (PEM) / ~10 bar (AEM)</li>
+            </ul>
+          </details>
+        </article>
+
+        <!-- Porous Sintered Electrodes -->
+        <article class="card p-6 flex flex-col">
+          <h3 class="text-lg font-semibold text-emerald-700">Porous Sintered Electrodes & Supports</h3>
+          <p class="mt-2 text-muted flex-1">Sintered SS, Ni, Ti substrates for gas diffusion and thermal management in stacks.</p>
+          <details class="mt-4">
+            <summary class="cursor-pointer text-sm text-emerald-700 font-medium">Options</summary>
+            <ul class="mt-2 text-sm text-muted list-disc list-inside space-y-1">
+              <li>Custom porosity & thickness</li>
+              <li>Catalyst-coated variants available</li>
+              <li>Lab to industrial sizes</li>
+            </ul>
+          </details>
+        </article>
+      </div>
+
+      <!-- quick CTA -->
+      <div class="mt-10 flex flex-wrap items-center gap-3">
+        <a href="#contact" class="btn btn-primary">Request datasheets</a>
+        <span class="text-sm text-muted">PEM/AEM stacks, MEAs, and reference cells available on request.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CONSULTATION & LAB SERVICES ============================ -->
+  <section id="consultation" class="py-20">
+    <div class="max-w-[1100px] mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold">Consultation & Lab Services</h2>
+      <p class="mt-3 text-muted max-w-3xl">
+        Applied electrochemistry support for industry and research — from prototype design to scale-up.
+      </p>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <article class="card p-6">
+          <h3 class="font-semibold text-emerald-700">Domains</h3>
+          <ul class="mt-3 text-muted list-disc list-inside space-y-1">
+            <li>Corrosion & electroplating</li>
+            <li>Batteries & fuel cells</li>
+            <li>Water electrolysis & electrodialysis</li>
+            <li>Supercapacitors</li>
+          </ul>
+        </article>
+        <article class="card p-6">
+          <h3 class="font-semibold text-emerald-700">Capabilities</h3>
+          <ul class="mt-3 text-muted list-disc list-inside space-y-1">
+            <li>Potentiostat/galvanostat up to 100 A</li>
+            <li>EIS & gas analysis</li>
+            <li>Accelerated aging & environmental chambers</li>
+            <li>Custom MEA/electrode fabrication</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="mt-8">
+        <a href="#contact" class="btn btn-primary">Discuss your project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ APPLICATIONS ============================ -->
   <section id="applications" class="py-20 bg-surface border-y">
     <div class="max-w-[1200px] mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Applications</h2>
@@ -236,7 +465,7 @@
     </div>
   </section>
 
-  <!-- ============================ ACHIEVEMENTS (your list) ============================ -->
+  <!-- ============================ ACHIEVEMENTS ============================ -->
   <section id="achievements" class="py-20">
     <div class="max-w-[1100px] mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Achievements</h2>
@@ -261,19 +490,18 @@
     </div>
   </section>
 
-  <!-- ============================ PARTNERS (logo wall) ============================ -->
+  <!-- ============================ PARTNERS ============================ -->
   <section id="partners" class="py-16 bg-surface border-y">
     <div class="max-w-[1100px] mx-auto px-4">
       <h2 class="text-2xl md:text-3xl font-semibold">Partners & Collaborators</h2>
       <p class="mt-3 text-muted">Engineering, research, and pilot deployments with trusted institutions.</p>
 
-      <!-- Logo wall placeholders; replace with real logos in /images/partners/*.png -->
       <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 items-center">
         <div class="card p-4 flex items-center justify-center"><span class="text-sm font-medium">Vimano</span></div>
         <div class="card p-4 flex items-center justify-center"><span class="text-sm font-medium">Pentair</span></div>
         <div class="card p-4 flex items-center justify-center"><span class="text-sm font-medium">Delhi University</span></div>
-        <div class="card p-4 flex items-center justify-center"><span class="text-sm font-medium">Manipal Institute</span></div>
-        <div class="card p-4 flex items-center justify-center"><span class="text-sm font-medium">Jaipur</span></div>
+        <div class="card p-4 flex items-center justify-center"><span class="text-sm font-medium">Manipal Institute, Manipal</span></div>
+        <div class="card p-4 flex items-center justify-center"><span class="text-sm font-medium">Manipal Institute, Jaipur</span></div>
         <div class="card p-4 flex items-center justify-center"><span class="text-sm font-medium">HPCL</span></div>
       </div>
     </div>
@@ -296,6 +524,122 @@
       </div>
       <div class="card p-0 overflow-hidden">
         <img src="images/team.png" alt="Team / Lab" class="w-full object-cover" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ JOURNEY & FUTURE VISION ============================ -->
+  <section id="journey" class="py-20 bg-surface border-y">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-semibold">Our Journey & Future Vision</h2>
+      <p class="mt-3 text-muted max-w-3xl">
+        From sketches in the lab to pilots on the water—and onward to scalable green-hydrogen systems for India.
+      </p>
+
+      <div class="mt-10 relative">
+        <div class="absolute left-[18px] top-0 bottom-0 md:hidden"
+             style="background:linear-gradient(180deg,var(--g1),var(--g2)); width:3px;"></div>
+
+        <div class="hidden md:block absolute left-0 right-0"
+             style="top:54px; height:3px; background:linear-gradient(90deg,var(--g1),var(--g2));"></div>
+
+        <ol class="grid md:grid-cols-5 gap-8 md:gap-6">
+          <li class="relative md:text-center">
+            <div class="absolute md:static left-0 md:mx-auto -translate-x-1/2 md:translate-x-0">
+              <div class="h-4 w-4 rounded-full ring-4 ring-white"
+                   style="background:linear-gradient(140deg,var(--g1),var(--g2));"></div>
+            </div>
+            <div class="ml-8 md:ml-0 mt-2 md:mt-6 card p-5">
+              <div class="text-xs uppercase tracking-wide text-emerald-700/90">2023</div>
+              <h3 class="mt-1 font-semibold">Foundations</h3>
+              <p class="mt-2 text-muted text-sm">
+                Hypothesis, early stack concepts, and problem validation with fleet/marine operators.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="badge bg-emerald-50 text-emerald-700">Concept</span>
+                <span class="badge bg-sky-50 text-sky-700">Lab setup</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="relative md:text-center">
+            <div class="absolute md:static left-0 md:mx-auto -translate-x-1/2 md:translate-x-0">
+              <div class="h-4 w-4 rounded-full ring-4 ring-white"
+                   style="background:linear-gradient(140deg,var(--g1),var(--g2));"></div>
+            </div>
+            <div class="ml-8 md:ml-0 mt-2 md:mt-6 card p-5">
+              <div class="text-xs uppercase tracking-wide text-emerald-700/90">2024</div>
+              <h3 class="mt-1 font-semibold">Prototypes & Acceleration</h3>
+              <p class="mt-2 text-muted text-sm">
+                Lab prototypes and bench tests; selected for <strong>JSS STEP Accelerator</strong>.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="badge bg-emerald-50 text-emerald-700">Prototypes</span>
+                <span class="badge bg-sky-50 text-sky-700">JSS STEP</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="relative md:text-center">
+            <div class="absolute md:static left-0 md:mx-auto -translate-x-1/2 md:translate-x-0">
+              <div class="h-4 w-4 rounded-full ring-4 ring-white"
+                   style="background:linear-gradient(140deg,var(--g1),var(--g2));"></div>
+            </div>
+            <div class="ml-8 md:ml-0 mt-2 md:mt-6 card p-5">
+              <div class="text-xs uppercase tracking-wide text-emerald-700/90">2025</div>
+              <h3 class="mt-1 font-semibold">Recognition & Pilots</h3>
+              <p class="mt-2 text-muted text-sm">
+                <strong>Elevate Karnataka — Winners</strong> •
+                <strong>NTCWPC Maritime Hackathon (Sagarmala)</strong> — <em>PoC Award</em>.
+                <br/>Virtual incubation at <strong>BBC</strong> (ongoing).
+              </p>
+              <p class="mt-2 text-muted text-sm">
+                Partners: Vimano, Pentair, Delhi University, Manipal Institute of Technology, Jaipur, HPCL.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="badge bg-emerald-50 text-emerald-700">Awards</span>
+                <span class="badge bg-sky-50 text-sky-700">Pilots</span>
+                <span class="badge bg-indigo-50 text-indigo-700">Incubation</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="relative md:text-center">
+            <div class="absolute md:static left-0 md:mx-auto -translate-x-1/2 md:translate-x-0">
+              <div class="h-4 w-4 rounded-full ring-4 ring-white"
+                   style="background:linear-gradient(140deg,var(--g1),var(--g2));"></div>
+            </div>
+            <div class="ml-8 md:ml-0 mt-2 md:mt-6 card p-5">
+              <div class="text-xs uppercase tracking-wide text-emerald-700/90">2026 — Planned</div>
+              <h3 class="mt-1 font-semibold">Field Deployments</h3>
+              <p class="mt-2 text-muted text-sm">
+                Multi-site trials in marine/ports & rural microgrids; reliability data and BoS optimization.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="badge bg-amber-50 text-amber-700">Planned</span>
+                <span class="badge bg-emerald-50 text-emerald-700">Deployments</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="relative md:text-center">
+            <div class="absolute md:static left-0 md:mx-auto -translate-x-1/2 md:translate-x-0">
+              <div class="h-4 w-4 rounded-full ring-4 ring-white"
+                   style="background:linear-gradient(140deg,var(--g1),var(--g2));"></div>
+            </div>
+            <div class="ml-8 md:ml-0 mt-2 md:mt-6 card p-5">
+              <div class="text-xs uppercase tracking-wide text-emerald-700/90">2027 — Vision</div>
+              <h3 class="mt-1 font-semibold">Scaled Impact</h3>
+              <p class="mt-2 text-muted text-sm">
+                Commercial roll-outs: ammonia-ready stacks, 1–20 MW electrolyzer blocks, and H₂/NH₃ logistics for fleets & ports.
+              </p>
+              <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                <span class="badge bg-purple-50 text-purple-700">Vision</span>
+                <span class="badge bg-sky-50 text-sky-700">Scale</span>
+              </div>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>
@@ -374,6 +718,7 @@
       <div class="flex items-center gap-4">
         <a href="#mission" class="hover:text-slate-700">Mission</a>
         <a href="#technology" class="hover:text-slate-700">Technology</a>
+        <a href="#products" class="hover:text-slate-700">Products</a>
         <a href="#contact" class="hover:text-slate-700">Contact</a>
       </div>
     </div>
